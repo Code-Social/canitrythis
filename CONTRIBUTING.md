@@ -67,17 +67,6 @@ npm start
 
 Visit `http://localhost:3000` in your browser 🚀
 
----
-
-## 📂 Project Structure
-
-```
-can-i-try-this/
- ┣ 📂src          ← Frontend code (React + TailwindCSS)
- ┣ 📂backend      ← Backend code (Node.js/Firebase)
- ┣ 📄package.json
- ┗ 📄README.md
-```
 
 ---
 
@@ -130,3 +119,4 @@ By contributing, you agree that your contributions will be licensed under the [M
 ---
 
 Made with ❤️ by the *Can I Try This?* community. Let’s build the chillest skill-building space on the internet! 🌱
+
