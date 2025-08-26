@@ -33,7 +33,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <button
@@ -44,7 +44,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             Back to Challenges
           </button>
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className={`px-3 py-1 rounded-full text-sm font-medium border ${domainColors[challenge.domain] || 'bg-gray-100 text-gray-800 border-gray-200'}`}>
                 {challenge.domain}
@@ -55,7 +55,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{challenge.title}</h1>
-            
+
             <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 mb-6">
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2" />
@@ -79,31 +79,39 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Challenge Details */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Challenge Details</h2>
-              
-              <div className="prose max-w-none">
-                <h3>What You'll Build</h3>
-                <p>This challenge requires you to create a comprehensive solution that demonstrates your skills in {challenge.domain.toLowerCase()}. You'll work with real-world constraints and requirements.</p>
-                
-                <h3>Requirements</h3>
-                <ul>
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">What You'll Build</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  This challenge requires you to create a comprehensive solution that demonstrates your skills in {challenge.domain.toLowerCase()}. You'll work with real-world constraints and requirements.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Requirements</h2>
+                <ul className="list-disc pl-6 text-gray-700 space-y-2">
                   <li>Follow industry best practices and standards</li>
                   <li>Create a solution that is user-friendly and accessible</li>
                   <li>Include proper documentation or explanations</li>
                   <li>Test your solution thoroughly before submission</li>
                 </ul>
+              </div>
 
-                <h3>Bonus Challenges</h3>
-                <ul>
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Bonus Challenges</h2>
+                <ul className="list-disc pl-6 text-gray-700 space-y-2">
                   <li>Add responsive design considerations</li>
                   <li>Implement additional features beyond the basic requirements</li>
                   <li>Create a presentation or demo of your work</li>
                 </ul>
-
-                <h3>Resources</h3>
-                <p>Here are some helpful resources to get you started:</p>
-                <ul>
+              </div>
+              
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Resources</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Here are some helpful resources to get you started:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 space-y-2">
                   <li>Official documentation and guides</li>
                   <li>Community discussions and examples</li>
                   <li>Best practice articles and tutorials</li>
@@ -112,9 +120,9 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             {/* Submission Form */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-6">Submit Your Solution</h2>
-              
+
               {/* Submission Type Selector */}
               <div className="flex space-x-1 bg-gray-100 rounded-lg p-1 mb-6">
                 {[
@@ -125,11 +133,10 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
                   <button
                     key={type}
                     onClick={() => setSubmissionType(type as any)}
-                    className={`flex-1 flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                      submissionType === type
+                    className={`flex-1 flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${submissionType === type
                         ? 'bg-white text-purple-600 shadow-sm'
                         : 'text-gray-600 hover:text-gray-900'
-                    }`}
+                      }`}
                   >
                     <Icon className="h-4 w-4 mr-2" />
                     {label}
@@ -186,11 +193,10 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitted}
-                className={`w-full py-3 px-4 rounded-lg font-medium transition-all ${
-                  isSubmitted
+                className={`w-full py-3 px-4 rounded-lg font-medium transition-all ${isSubmitted
                     ? 'bg-green-600 text-white'
                     : 'bg-purple-600 hover:bg-purple-700 text-white hover:transform hover:scale-[1.02]'
-                }`}
+                  }`}
               >
                 {isSubmitted ? (
                   <div className="flex items-center justify-center">
@@ -207,7 +213,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Challenge Stats */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Challenge Stats</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -226,7 +232,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             {/* Tags */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills & Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {challenge.tags.map((tag) => (
@@ -241,7 +247,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             {/* Achievement */}
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6 shadow-lg">
               <div className="flex items-center mb-3">
                 <Award className="h-6 w-6 text-purple-600 mr-2" />
                 <h3 className="text-lg font-semibold text-purple-900">Complete This Challenge</h3>
