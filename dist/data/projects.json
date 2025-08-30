@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "E-commerce Dashboard",
+    "description": "A modern admin dashboard for managing online stores with real-time analytics and inventory management.",
+    "technologies": ["React", "TypeScript", "Node.js", "MongoDB", "TailwindCSS"],
+    "githubUrl": "https://github.com/example/ecommerce-dashboard",
+    "imageUrl": "/assets/projects/ecommerce-dashboard.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Task Management App",
+    "description": "A collaborative task management application with drag-and-drop functionality and team collaboration features.",
+    "technologies": ["Vue.js", "Express.js", "PostgreSQL", "Socket.io"],
+    "githubUrl": "https://github.com/example/task-manager",
+    "imageUrl": "/assets/projects/task-manager.jpg",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Weather Forecast Widget",
+    "description": "A responsive weather widget with location-based forecasts and beautiful animations.",
+    "technologies": ["JavaScript", "CSS3", "Weather API", "Chart.js"],
+    "githubUrl": "https://github.com/example/weather-widget",
+    "imageUrl": "/assets/projects/weather-widget.jpg",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Portfolio Website Builder",
+    "description": "A drag-and-drop portfolio builder that helps developers create stunning personal websites.",
+    "technologies": ["React", "Next.js", "Prisma", "Vercel"],
+    "githubUrl": "https://github.com/example/portfolio-builder",
+    "imageUrl": "/assets/projects/portfolio-builder.jpg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Expense Tracker Mobile App",
+    "description": "A cross-platform mobile app for tracking personal expenses with budget management and analytics.",
+    "technologies": ["React Native", "Firebase", "Redux", "Expo"],
+    "githubUrl": "https://github.com/example/expense-tracker",
+    "imageUrl": "/assets/projects/expense-tracker.jpg",
+    "featured": true
+  }
+]
