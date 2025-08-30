@@ -9,6 +9,7 @@ import { Profile } from './components/Profile/Profile';
 import { SubmitChallenge } from './components/Submit/SubmitChallenge';
 import { Community } from './components/Community/Community';
 import { Challenge } from './components/Challenges/ChallengeCard';
+import { FaTwitter, FaGithub, FaDiscord, FaLinkedin } from "react-icons/fa";
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -83,10 +84,40 @@ function App() {
                   A platform where learners explore real-world challenges across design, development, 
                   writing, data, and more. Build skills through practice, not just theory.
                 </p>
+                {/* Replaced text buttons with icons */}
                 <div className="flex space-x-4">
-                  <button className="text-gray-400 hover:text-white transition-colors">Twitter</button>
-                  <button className="text-gray-400 hover:text-white transition-colors">GitHub</button>
-                  <button className="text-gray-400 hover:text-white transition-colors">Discord</button>
+                  <a
+                    href="https://x.com/_Rizwan_10"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <FaTwitter size={24} />
+                  </a>
+                  <a
+                    href="https://github.com/Code-Social/canitrythis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <FaGithub size={24} />
+                  </a>
+                  <a
+                    href="https://discord.com/invite/your-server"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <FaDiscord size={24} />
+                  </a>
+                  <a
+                  href="https://www.linkedin.com/in/skmdrizwan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <FaLinkedin size={24} />
+                  </a>
                 </div>
               </div>
               
@@ -121,4 +152,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
