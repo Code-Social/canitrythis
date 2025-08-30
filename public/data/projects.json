@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Inclusive Learning Platform",
+    "description": "A collaborative learning platform designed for accessibility and diverse learning styles. Join our welcoming community to build features that help everyone learn together, regardless of background or ability.",
+    "technologies": ["React", "TypeScript", "Node.js", "MongoDB", "TailwindCSS"],
+    "githubUrl": "https://github.com/example/inclusive-learning",
+    "imageUrl": "/assets/projects/inclusive-learning.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Community Task Manager",
+    "description": "An open-source task management tool built by and for diverse teams. We welcome contributors of all skill levels and backgrounds to help create better collaboration tools for everyone.",
+    "technologies": ["Vue.js", "Express.js", "PostgreSQL", "Socket.io"],
+    "githubUrl": "https://github.com/example/community-tasks",
+    "imageUrl": "/assets/projects/community-tasks.jpg",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Accessible Weather App",
+    "description": "A weather application prioritizing accessibility and inclusive design. Perfect for new contributors to learn about WCAG compliance while building something useful for everyone.",
+    "technologies": ["JavaScript", "CSS3", "Weather API", "Chart.js"],
+    "githubUrl": "https://github.com/example/accessible-weather",
+    "imageUrl": "/assets/projects/accessible-weather.jpg",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Mentorship Matching Platform",
+    "description": "Connect learners with mentors in a safe, supportive environment. This project emphasizes creating inclusive spaces where everyone can grow and share knowledge respectfully.",
+    "technologies": ["React", "Next.js", "Prisma", "Vercel"],
+    "githubUrl": "https://github.com/example/mentorship-platform",
+    "imageUrl": "/assets/projects/mentorship-platform.jpg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Diversity in Tech Blog",
+    "description": "A collaborative blog platform celebrating diverse voices in technology. Contributors from all backgrounds are encouraged to share their stories, experiences, and technical insights.",
+    "technologies": ["Gatsby", "MDX", "GraphQL", "Netlify"],
+    "githubUrl": "https://github.com/example/diversity-blog",
+    "imageUrl": "/assets/projects/diversity-blog.jpg",
+    "featured": true
+  }
+]
