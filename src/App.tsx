@@ -9,11 +9,7 @@ import { Profile } from './components/Profile/Profile';
 import { SubmitChallenge } from './components/Submit/SubmitChallenge';
 import { Community } from './components/Community/Community';
 import { Challenge } from './components/Challenges/ChallengeCard';
-
-import { FaTwitter, FaGithub, FaDiscord, FaLinkedin } from "react-icons/fa";
-
 import { ThemeProvider } from './themeContent'; // Import the new ThemeProvider
-
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -95,46 +91,6 @@ function App() {
                     <button className="text-gray-400 hover:text-white transition-colors">Discord</button>
                   </div>
                 </div>
-
-                <p className="text-gray-400 mb-6">
-                  A platform where learners explore real-world challenges across design, development, 
-                  writing, data, and more. Build skills through practice, not just theory.
-                </p>
-                {/* Replaced text buttons with icons */}
-                <div className="flex space-x-4">
-                  <a
-                    href="https://x.com/codesocial_tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <FaTwitter size={24} />
-                  </a>
-                  <a
-                    href="https://github.com/Code-Social"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <FaGithub size={24} />
-                  </a>
-                  <a
-                    href="https://discord.com/invite/MSTNyRSPYW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <FaDiscord size={24} />
-                  </a>
-                  <a
-                  href="https://www.linkedin.com/company/code-social/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <FaLinkedin size={24} />
-                  </a>
-
                 
                 <div>
                   <h4 className="font-semibold mb-4">Platform</h4>
@@ -154,7 +110,6 @@ function App() {
                     <li><button className="hover:text-white transition-colors">Contact Us</button></li>
                     <li><button className="hover:text-white transition-colors">Privacy Policy</button></li>
                   </ul>
-
                 </div>
               </div>
               
@@ -169,8 +124,4 @@ function App() {
   );
 }
 
-
-export default App;
-
 export default App;
-
