@@ -87,8 +87,8 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
 
   const filteredChallenges = mockChallenges.filter(challenge => {
     const matchesSearch = challenge.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         challenge.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         challenge.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+                          challenge.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          challenge.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const matchesDomain = selectedDomain === 'All' || challenge.domain === selectedDomain;
     const matchesDifficulty = selectedDifficulty === 'All' || challenge.difficulty === selectedDifficulty;
@@ -112,26 +112,26 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
   }));
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Challenge Board</h1>
-          <p className="text-gray-600">Discover real-world challenges to level up your skills</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Challenge Board</h1>
+          <p className="text-gray-600 dark:text-gray-400">Discover real-world challenges to level up your skills</p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8 transition-colors duration-300">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-500" />
               <input
                 type="text"
                 placeholder="Search challenges..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               />
             </div>
 
@@ -140,7 +140,7 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
               <select
                 value={selectedDomain}
                 onChange={(e) => setSelectedDomain(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 {domains.map(domain => (
                   <option key={domain} value={domain}>{domain} Domain</option>
@@ -150,7 +150,7 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 {difficulties.map(difficulty => (
                   <option key={difficulty} value={difficulty}>
@@ -159,16 +159,24 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
                 ))}
               </select>
 
-              <div className="flex border border-gray-300 rounded-lg">
+              <div className="flex border border-gray-300 dark:border-gray-600 rounded-lg">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 ${viewMode === 'grid' ? 'bg-purple-100 text-purple-600' : 'text-gray-600 hover:bg-gray-100'} transition-colors`}
+                  className={`p-2 transition-colors duration-200 ${
+                    viewMode === 'grid' 
+                      ? 'bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-400' 
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
                 >
                   <Grid className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 ${viewMode === 'list' ? 'bg-purple-100 text-purple-600' : 'text-gray-600 hover:bg-gray-100'} transition-colors`}
+                  className={`p-2 transition-colors duration-200 ${
+                    viewMode === 'list' 
+                      ? 'bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-400' 
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
                 >
                   <List className="h-4 w-4" />
                 </button>
@@ -177,8 +185,8 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
           </div>
 
           {/* Results count */}
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <p className="text-sm text-gray-600">
+          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Showing {challengesWithBookmarks.length} of {mockChallenges.length} challenges
             </p>
           </div>
@@ -190,23 +198,23 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
             ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
             : 'grid-cols-1'
         }`}>
-          {challengesWithBookmarks.map((challenge) => (
-            <ChallengeCard
-              key={challenge.id}
-              challenge={challenge}
-              onSelect={onChallengeSelect}
-              onBookmark={handleBookmark}
-            />
-          ))}
+          {challengesWithBookmarks.length > 0 ? (
+            challengesWithBookmarks.map((challenge) => (
+              <ChallengeCard
+                key={challenge.id}
+                challenge={challenge}
+                onSelect={onChallengeSelect}
+                onBookmark={handleBookmark}
+              />
+            ))
+          ) : (
+            <div className="text-center py-12 col-span-full">
+              <Filter className="h-12 w-12 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No challenges found</h3>
+              <p className="text-gray-600 dark:text-gray-400">Try adjusting your search or filters</p>
+            </div>
+          )}
         </div>
-
-        {challengesWithBookmarks.length === 0 && (
-          <div className="text-center py-12">
-            <Filter className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No challenges found</h3>
-            <p className="text-gray-600">Try adjusting your search or filters</p>
-          </div>
-        )}
       </div>
     </div>
   );

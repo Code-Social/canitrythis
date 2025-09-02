@@ -18,35 +18,35 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
   };
 
   const difficultyColors = {
-    Easy: 'bg-green-100 text-green-800 border-green-200',
-    Medium: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-    Hard: 'bg-red-100 text-red-800 border-red-200'
+    Easy: 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900 dark:text-green-300 dark:border-green-800',
+    Medium: 'bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900 dark:text-yellow-300 dark:border-yellow-800',
+    Hard: 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900 dark:text-red-300 dark:border-red-800'
   };
 
   const domainColors: Record<string, string> = {
-    Design: 'bg-pink-100 text-pink-800 border-pink-200',
-    Development: 'bg-blue-100 text-blue-800 border-blue-200',
-    Writing: 'bg-purple-100 text-purple-800 border-purple-200',
-    Data: 'bg-indigo-100 text-indigo-800 border-indigo-200',
-    Creative: 'bg-orange-100 text-orange-800 border-orange-200'
+    Design: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-pink-900 dark:text-pink-300 dark:border-pink-800',
+    Development: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-800',
+    Writing: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900 dark:text-purple-300 dark:border-purple-800',
+    Data: 'bg-indigo-100 text-indigo-800 border-indigo-200 dark:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-800',
+    Creative: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900 dark:text-orange-300 dark:border-orange-800'
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <button
             onClick={onBack}
-            className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-4 transition-colors"
+            className="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-500 mb-4 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Challenges
           </button>
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 transition-colors duration-300">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium border ${domainColors[challenge.domain] || 'bg-gray-100 text-gray-800 border-gray-200'}`}>
+              <span className={`px-3 py-1 rounded-full text-sm font-medium border ${domainColors[challenge.domain] || 'bg-gray-100 text-gray-800 border-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600'}`}>
                 {challenge.domain}
               </span>
               <span className={`px-3 py-1 rounded-full text-sm font-medium border ${difficultyColors[challenge.difficulty]}`}>
@@ -54,9 +54,9 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
               </span>
             </div>
 
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">{challenge.title}</h1>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{challenge.title}</h1>
             
-            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 mb-6">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400 mb-6">
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2" />
                 {challenge.estimatedTime}
@@ -71,7 +71,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
               </div>
             </div>
 
-            <p className="text-gray-700 text-lg leading-relaxed">{challenge.description}</p>
+            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">{challenge.description}</p>
           </div>
         </div>
 
@@ -79,10 +79,10 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Challenge Details */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Challenge Details</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 transition-colors duration-300">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Challenge Details</h2>
               
-              <div className="prose max-w-none">
+              <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
                 <h3>What You'll Build</h3>
                 <p>This challenge requires you to create a comprehensive solution that demonstrates your skills in {challenge.domain.toLowerCase()}. You'll work with real-world constraints and requirements.</p>
                 
@@ -112,11 +112,11 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             {/* Submission Form */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Submit Your Solution</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 transition-colors duration-300">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Submit Your Solution</h2>
               
               {/* Submission Type Selector */}
-              <div className="flex space-x-1 bg-gray-100 rounded-lg p-1 mb-6">
+              <div className="flex space-x-1 bg-gray-100 dark:bg-gray-700 rounded-lg p-1 mb-6">
                 {[
                   { type: 'link', icon: Link, label: 'Link' },
                   { type: 'file', icon: Upload, label: 'File' },
@@ -127,8 +127,8 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
                     onClick={() => setSubmissionType(type as any)}
                     className={`flex-1 flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                       submissionType === type
-                        ? 'bg-white text-purple-600 shadow-sm'
-                        : 'text-gray-600 hover:text-gray-900'
+                        ? 'bg-white dark:bg-gray-900 text-purple-600 dark:text-purple-400 shadow-sm'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200'
                     }`}
                   >
                     <Icon className="h-4 w-4 mr-2" />
@@ -141,7 +141,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
               <div className="mb-6">
                 {submissionType === 'link' && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Project Link (GitHub, CodePen, Figma, etc.)
                     </label>
                     <input
@@ -149,19 +149,19 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
                       placeholder="https://github.com/username/project"
                       value={submissionContent}
                       onChange={(e) => setSubmissionContent(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     />
                   </div>
                 )}
 
                 {submissionType === 'file' && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Upload Files
                     </label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-purple-400 transition-colors">
-                      <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                      <p className="text-gray-600">Drag & drop files here, or click to browse</p>
+                    <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center hover:border-purple-400 transition-colors">
+                      <Upload className="h-8 w-8 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
+                      <p className="text-gray-600 dark:text-gray-400">Drag & drop files here, or click to browse</p>
                       <input type="file" multiple className="hidden" />
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
 
                 {submissionType === 'text' && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Describe Your Solution
                     </label>
                     <textarea
@@ -177,7 +177,7 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
                       placeholder="Explain your approach, challenges faced, and what you learned..."
                       value={submissionContent}
                       onChange={(e) => setSubmissionContent(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     />
                   </div>
                 )}
@@ -207,32 +207,32 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Challenge Stats */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Challenge Stats</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Challenge Stats</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Participants</span>
-                  <span className="font-medium">{challenge.participants}</span>
+                  <span className="text-gray-600 dark:text-gray-400">Participants</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{challenge.participants}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Average Rating</span>
-                  <span className="font-medium">{challenge.rating}/5.0</span>
+                  <span className="text-gray-600 dark:text-gray-400">Average Rating</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{challenge.rating}/5.0</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Completion Rate</span>
-                  <span className="font-medium">73%</span>
+                  <span className="text-gray-600 dark:text-gray-400">Completion Rate</span>
+                  <span className="font-medium text-gray-900 dark:text-white">73%</span>
                 </div>
               </div>
             </div>
 
             {/* Tags */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills & Tags</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Skills & Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {challenge.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full"
                   >
                     {tag}
                   </span>
@@ -241,12 +241,12 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
             </div>
 
             {/* Achievement */}
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+            <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900 dark:to-blue-900 rounded-xl border border-purple-200 dark:border-purple-800 p-6 transition-colors duration-300">
               <div className="flex items-center mb-3">
-                <Award className="h-6 w-6 text-purple-600 mr-2" />
-                <h3 className="text-lg font-semibold text-purple-900">Complete This Challenge</h3>
+                <Award className="h-6 w-6 text-purple-600 dark:text-purple-400 mr-2" />
+                <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-200">Complete This Challenge</h3>
               </div>
-              <p className="text-purple-700 text-sm">
+              <p className="text-purple-700 dark:text-purple-300 text-sm">
                 Completing this challenge will earn you points and help build your portfolio.
               </p>
             </div>
