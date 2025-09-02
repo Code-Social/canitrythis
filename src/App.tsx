@@ -87,7 +87,7 @@ function App() {
                 {/* Replaced text buttons with icons */}
                 <div className="flex space-x-4">
                   <a
-                    href="https://x.com/_Rizwan_10"
+                    href="https://x.com/codesocial_tech"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors"
@@ -95,7 +95,7 @@ function App() {
                     <FaTwitter size={24} />
                   </a>
                   <a
-                    href="https://github.com/Code-Social/canitrythis"
+                    href="https://github.com/Code-Social"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors"
@@ -103,7 +103,7 @@ function App() {
                     <FaGithub size={24} />
                   </a>
                   <a
-                    href="https://discord.com/invite/your-server"
+                    href="https://discord.com/invite/MSTNyRSPYW"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors"
@@ -111,7 +111,7 @@ function App() {
                     <FaDiscord size={24} />
                   </a>
                   <a
-                  href="https://www.linkedin.com/in/skmdrizwan/"
+                  href="https://www.linkedin.com/company/code-social/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
