@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 
+import { Header } from './components/Layout/Header';
+import { Hero } from './components/Home/Hero';
+import { Features } from './components/Home/Features';
+import { HowItWorks } from './components/Home/HowItWorks';
+import { ChallengeBoard } from './components/Challenges/ChallengeBoard';
+import { ChallengeDetail } from './components/Challenges/ChallengeDetail';
+import { Profile } from './components/Profile/Profile';
+import { SubmitChallenge } from './components/Submit/SubmitChallenge';
+import { Community } from './components/Community/Community';
+import { Challenge } from './components/Challenges/ChallengeCard';
+import { ThemeProvider } from './themeContent'; // Import the new ThemeProvider
+
+
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
 
@@ -15,7 +28,7 @@ function App() {
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
               <h1 className="text-3xl font-bold text-purple-600 mb-4">Projects Page</h1>
               <p className="text-gray-600 mb-4">Community projects will be displayed here</p>
-              <button 
+              <button
                 onClick={() => handleNavigate('home')}
                 className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
               >
@@ -30,7 +43,7 @@ function App() {
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
               <h1 className="text-3xl font-bold text-blue-600 mb-4">Blog Page</h1>
               <p className="text-gray-600 mb-4">Community blog posts will be displayed here</p>
-              <button 
+              <button
                 onClick={() => handleNavigate('home')}
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
               >
@@ -51,7 +64,7 @@ function App() {
                   <h1 className="text-5xl font-bold text-gray-900 mb-4">Can I Try This?</h1>
                   <p className="text-xl text-gray-600 mb-8">Real Skills, Real Growth</p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-purple-50 p-6 rounded-xl border border-purple-200 flex flex-col">
                     <div className="text-3xl mb-3">🚀</div>
@@ -60,7 +73,7 @@ function App() {
                       Discover inclusive, collaborative projects that welcome contributors of all backgrounds and skill levels
                     </p>
                     <div className="mt-auto">
-                      <button 
+                      <button
                         onClick={() => handleNavigate('projects')}
                         className="w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
                       >
@@ -68,7 +81,7 @@ function App() {
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 flex flex-col">
                     <div className="text-3xl mb-3">📝</div>
                     <h3 className="text-lg font-bold text-blue-900 mb-2">Community Blog</h3>
@@ -76,7 +89,7 @@ function App() {
                       Stories celebrating diversity, inclusion, and positive collaboration in technology
                     </p>
                     <div className="mt-auto">
-                      <button 
+                      <button
                         onClick={() => handleNavigate('blog')}
                         className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
                       >
@@ -85,7 +98,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
                   <p className="text-sm text-green-800 font-medium mb-2">
                     🌟 Built with Community Values
@@ -96,7 +109,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             {/* What Can I Do Here Section */}
             <div className="mt-16 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +119,7 @@ function App() {
                     What Can I Do Here?
                   </h2>
                   <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Discover a world of hands-on learning opportunities designed to help you grow, 
+                    Discover a world of hands-on learning opportunities designed to help you grow,
                     connect, and build real skills in a supportive community.
                   </p>
                 </div>
@@ -214,61 +227,68 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Simple Navigation */}
-      <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center cursor-pointer" onClick={() => handleNavigate('home')}>
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
-                <span className="font-bold text-xl">CT</span>
+    <ThemeProvider>
+      <div className="min-h-screen">
+        <Header currentPage={currentPage} onNavigate={handleNavigate} />
+        <main>
+          {renderPage()}
+        </main>
+
+        {/* Footer */}
+        {currentPage === 'home' && (
+          <footer className="bg-gray-900 text-white py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="md:col-span-2">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
+                      <span className="font-bold text-xl">CT</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold">Can I Try This?</h3>
+                      <p className="text-gray-400 text-sm">Real Skills, Real Growth</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 mb-6">
+                    A platform where learners explore real-world challenges across design, development,
+                    writing, data, and more. Build skills through practice, not just theory.
+                  </p>
+                  <div className="flex space-x-4">
+                    <button className="text-gray-400 hover:text-white transition-colors">Twitter</button>
+                    <button className="text-gray-400 hover:text-white transition-colors">GitHub</button>
+                    <button className="text-gray-400 hover:text-white transition-colors">Discord</button>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold mb-4">Platform</h4>
+                  <ul className="space-y-2 text-gray-400">
+                    <li><button onClick={() => handleNavigate('challenges')} className="hover:text-white transition-colors">Challenges</button></li>
+                    <li><button onClick={() => handleNavigate('community')} className="hover:text-white transition-colors">Community</button></li>
+                    <li><button onClick={() => handleNavigate('submit')} className="hover:text-white transition-colors">Submit Challenge</button></li>
+                    <li><button className="hover:text-white transition-colors">Mentor Program</button></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold mb-4">Support</h4>
+                  <ul className="space-y-2 text-gray-400">
+                    <li><button className="hover:text-white transition-colors">Help Center</button></li>
+                    <li><button className="hover:text-white transition-colors">Guidelines</button></li>
+                    <li><button className="hover:text-white transition-colors">Contact Us</button></li>
+                    <li><button className="hover:text-white transition-colors">Privacy Policy</button></li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Can I Try This?</h1>
-                <p className="text-xs text-gray-500 -mt-1">Real Skills, Real Growth</p>
+
+              <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Can I Try This? All rights reserved.</p>
               </div>
             </div>
-            
-            <div className="flex space-x-6">
-              <button
-                onClick={() => handleNavigate('home')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  currentPage === 'home'
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                }`}
-              >
-                Home
-              </button>
-              <button
-                onClick={() => handleNavigate('projects')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  currentPage === 'projects'
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                }`}
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => handleNavigate('blog')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  currentPage === 'blog'
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                }`}
-              >
-                Blog
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      
-      <main>
-        {renderPage()}
-      </main>
-    </div>
+          </footer>
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 
