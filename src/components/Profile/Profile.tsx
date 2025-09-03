@@ -1,4 +1,5 @@
 import React from 'react';
+import StreakCalendar from "./StreakCalendar";
 import { Award, BookOpen, Star, TrendingUp, Calendar, Target } from 'lucide-react';
 
 export const Profile: React.FC = () => {
@@ -148,6 +149,13 @@ export const Profile: React.FC = () => {
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">250 XP needed for Level 4: Advanced</p>
             </div>
+            {/* 30-Day Streak */}
+<div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+    30-Day Streak
+  </h3>
+  <StreakCalendar storageKey="cit_activeDates" />
+</div>
 
             {/* Achievements */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
