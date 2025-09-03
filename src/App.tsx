@@ -10,6 +10,8 @@ import { SubmitChallenge } from './components/Submit/SubmitChallenge';
 import { Community } from './components/Community/Community';
 import { Challenge } from './components/Challenges/ChallengeCard';
 import { ThemeProvider } from './themeContent'; // Import the new ThemeProvider
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -119,6 +121,7 @@ function App() {
             </div>
           </footer>
         )}
+         <ScrollToTop />
       </div>
     </ThemeProvider>
   );
