@@ -17,14 +17,19 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Initialize state from local storage or default to 'light'
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const storedTheme = localStorage.getItem('theme');
-    return (storedTheme === 'dark' || storedTheme === 'light') ? storedTheme : 'light';
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme');
+      return (storedTheme === 'dark' || storedTheme === 'light') ? storedTheme : 'light';
+    }
+    return 'light';
   });
 
   // Use useEffect to update the body class and local storage when the theme changes
   useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      document.body.className = theme;
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   const toggleTheme = () => {

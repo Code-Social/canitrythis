@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 
 import { Header } from './components/Layout/Header';
 import { Hero } from './components/Home/Hero';
-import { Features } from './components/Home/Features';
-import { HowItWorks } from './components/Home/HowItWorks';
 import { ChallengeBoard } from './components/Challenges/ChallengeBoard';
-import { ChallengeDetail } from './components/Challenges/ChallengeDetail';
 import { Profile } from './components/Profile/Profile';
 import { SubmitChallenge } from './components/Submit/SubmitChallenge';
 import { Community } from './components/Community/Community';
-import { Challenge } from './components/Challenges/ChallengeCard';
-import { ThemeProvider } from './themeContent'; // Import the new ThemeProvider
+import { Projects } from './components/Projects/Projects';
+import { Blog } from './components/Blog/Blog';
+import { ThemeProvider } from './themeContent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
-
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -25,199 +21,54 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'projects':
-        return (
-          <div className="min-h-screen bg-purple-50 flex items-center justify-center">
-            <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-              <h1 className="text-3xl font-bold text-purple-600 mb-4">Projects Page</h1>
-              <p className="text-gray-600 mb-4">Community projects will be displayed here</p>
-              <button
-                onClick={() => handleNavigate('home')}
-                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-              >
-                Back to Home
-              </button>
-            </div>
-          </div>
-        );
+        return <Projects />;
       case 'blog':
-        return (
-          <div className="min-h-screen bg-blue-50 flex items-center justify-center">
-            <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-              <h1 className="text-3xl font-bold text-blue-600 mb-4">Blog Page</h1>
-              <p className="text-gray-600 mb-4">Community blog posts will be displayed here</p>
-              <button
-                onClick={() => handleNavigate('home')}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-              >
-                Back to Home
-              </button>
-            </div>
-          </div>
-        );
+        return <Blog />;
+      case 'challenges':
+        return <ChallengeBoard onChallengeSelect={(challenge) => console.log('Selected challenge:', challenge)} />;
+      case 'profile':
+        return <Profile />;
+      case 'submit':
+        return <SubmitChallenge />;
+      case 'community':
+        return <Community />;
       default:
         return (
-          <div className="min-h-screen bg-gray-50 py-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <div className="bg-white rounded-2xl shadow-lg p-12">
-                <div className="mb-8">
-                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-2xl mx-auto w-20 h-20 flex items-center justify-center mb-6">
-                    <span className="font-bold text-2xl">CT</span>
-                  </div>
-                  <h1 className="text-5xl font-bold text-gray-900 mb-4">Can I Try This?</h1>
-                  <p className="text-xl text-gray-600 mb-8">Real Skills, Real Growth</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-purple-50 p-6 rounded-xl border border-purple-200 flex flex-col">
-                    <div className="text-3xl mb-3">🚀</div>
-                    <h3 className="text-lg font-bold text-purple-900 mb-2">Community Projects</h3>
-                    <p className="text-purple-700 text-sm mb-4 flex-grow">
-                      Discover inclusive, collaborative projects that welcome contributors of all backgrounds and skill levels
-                    </p>
-                    <div className="mt-auto">
-                      <button
-                        onClick={() => handleNavigate('projects')}
-                        className="w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-                      >
-                        Explore Projects
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 flex flex-col">
-                    <div className="text-3xl mb-3">📝</div>
-                    <h3 className="text-lg font-bold text-blue-900 mb-2">Community Blog</h3>
-                    <p className="text-blue-700 text-sm mb-4 flex-grow">
-                      Stories celebrating diversity, inclusion, and positive collaboration in technology
-                    </p>
-                    <div className="mt-auto">
-                      <button
-                        onClick={() => handleNavigate('blog')}
-                        className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                      >
-                        Read Blogs
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-                  <p className="text-sm text-green-800 font-medium mb-2">
-                    🌟 Built with Community Values
-                  </p>
-                  <p className="text-xs text-green-700">
-                    Guided by respect, inclusion, and empathy • Accessible & welcoming for everyone
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* What Can I Do Here Section */}
-            <div className="mt-16 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-16">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div>
+            <Hero onNavigate={handleNavigate} />
+            
+            {/* Quick Access Section */}
+            <div className="bg-white py-16">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <div className="text-4xl mb-4">🌟</div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                    What Can I Do Here?
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    Quick Access
                   </h2>
-                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Discover a world of hands-on learning opportunities designed to help you grow,
-                    connect, and build real skills in a supportive community.
+                  <p className="text-xl text-gray-600">
+                    Jump into what interests you most
                   </p>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">✨</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Explore Real Challenges</h3>
-                    <p className="text-gray-600 mb-4">Browse challenges by domain, level, or tag. New to design? Try making a social media post. Learning SQL? Analyze a real dataset.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>🎨 Design Challenges</li>
-                      <li>🧑‍💻 Development Tasks</li>
-                      <li>✍️ Writing Prompts</li>
-                      <li>📊 Data Projects</li>
-                      <li>🧠 Miscellaneous Skill Tests</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">🔒</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Login to Play</h3>
-                    <p className="text-gray-600 mb-4">Sign up to unlock the full experience and start building your skills portfolio.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Submit your solutions</li>
-                      <li>• Receive community feedback</li>
-                      <li>• Track completed challenges</li>
-                      <li>• Build your portfolio</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">📈</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Levels and Tags</h3>
-                    <p className="text-gray-600 mb-4">Each challenge is carefully categorized to help you find the perfect fit for your skill level.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Difficulty: Easy, Medium, Hard</li>
-                      <li>• Domain tags by category</li>
-                      <li>• Optional bonus missions</li>
-                      <li>• Skill progression tracking</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">💬</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Get and Give Feedback</h3>
-                    <p className="text-gray-600 mb-4">Leave kind, constructive feedback on others' submissions — and get some back on yours. We're all learning here.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Constructive community feedback</li>
-                      <li>• Learn from different approaches</li>
-                      <li>• Build meaningful connections</li>
-                      <li>• Celebrate growth together</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">🎯</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">From Practice to Portfolio</h3>
-                    <p className="text-gray-600 mb-4">Start with low-stakes practice. As you grow, take on bigger, portfolio-worthy challenges.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Begin with simple exercises</li>
-                      <li>• Progress to complex scenarios</li>
-                      <li>• Build a showcase of your work</li>
-                      <li>• Prepare for career opportunities</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">🧠</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Submit Your Own Challenge</h3>
-                    <p className="text-gray-600 mb-4">Built something cool or faced a real-world task? Submit it as a challenge for others to try.</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Share interesting problems</li>
-                      <li>• Help others learn</li>
-                      <li>• Get recognition for creativity</li>
-                      <li>• Inspire innovative thinking</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-12 bg-white rounded-2xl shadow-sm border border-gray-200 p-8 text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Built with Community Values</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="text-2xl mb-2">🤝</div>
-                      <h4 className="font-semibold text-purple-900 mb-1">Inclusive</h4>
-                      <p className="text-sm text-purple-700">Everyone is welcome, regardless of background</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200 hover:shadow-lg transition-shadow cursor-pointer" onClick={() => handleNavigate('projects')}>
+                    <div className="text-4xl mb-4">🚀</div>
+                    <h3 className="text-2xl font-bold text-purple-900 mb-3">Community Projects</h3>
+                    <p className="text-purple-700 mb-6">
+                      Discover inclusive, collaborative projects that welcome contributors of all backgrounds and skill levels. Get hands-on experience with real codebases.
+                    </p>
+                    <div className="inline-flex items-center text-purple-600 font-semibold">
+                      Explore Projects →
                     </div>
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <div className="text-2xl mb-2">🌱</div>
-                      <h4 className="font-semibold text-blue-900 mb-1">Growth-Focused</h4>
-                      <p className="text-sm text-blue-700">We celebrate progress and learning</p>
-                    </div>
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="text-2xl mb-2">✨</div>
-                      <h4 className="font-semibold text-green-900 mb-1">Supportive</h4>
-                      <p className="text-sm text-green-700">Kind feedback and mutual encouragement</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 hover:shadow-lg transition-shadow cursor-pointer" onClick={() => handleNavigate('blog')}>
+                    <div className="text-4xl mb-4">📝</div>
+                    <h3 className="text-2xl font-bold text-blue-900 mb-3">Community Blog</h3>
+                    <p className="text-blue-700 mb-6">
+                      Stories celebrating diversity, inclusion, and positive collaboration in technology. Learn from community experiences and insights.
+                    </p>
+                    <div className="inline-flex items-center text-blue-600 font-semibold">
+                      Read Stories →
                     </div>
                   </div>
                 </div>
@@ -238,58 +89,33 @@ function App() {
 
         {/* Footer */}
         {currentPage === 'home' && (
-          <footer className="bg-gray-900 text-white py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div className="md:col-span-2">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
-                      <span className="font-bold text-xl">CT</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">Can I Try This?</h3>
-                      <p className="text-gray-400 text-sm">Real Skills, Real Growth</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-400 mb-6">
-                    A platform where learners explore real-world challenges across design, development,
-                    writing, data, and more. Build skills through practice, not just theory.
-                  </p>
-                  <div className="flex space-x-4">
-                    <button className="text-gray-400 hover:text-white transition-colors">Twitter</button>
-                    <button className="text-gray-400 hover:text-white transition-colors">GitHub</button>
-                    <button className="text-gray-400 hover:text-white transition-colors">Discord</button>
-                  </div>
+          <footer className="bg-gray-900 text-white py-12">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
+                  <span className="font-bold text-xl">CT</span>
                 </div>
-
                 <div>
-                  <h4 className="font-semibold mb-4">Platform</h4>
-                  <ul className="space-y-2 text-gray-400">
-                    <li><button onClick={() => handleNavigate('challenges')} className="hover:text-white transition-colors">Challenges</button></li>
-                    <li><button onClick={() => handleNavigate('community')} className="hover:text-white transition-colors">Community</button></li>
-                    <li><button onClick={() => handleNavigate('submit')} className="hover:text-white transition-colors">Submit Challenge</button></li>
-                    <li><button className="hover:text-white transition-colors">Mentor Program</button></li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-4">Support</h4>
-                  <ul className="space-y-2 text-gray-400">
-                    <li><button className="hover:text-white transition-colors">Help Center</button></li>
-                    <li><button className="hover:text-white transition-colors">Guidelines</button></li>
-                    <li><button className="hover:text-white transition-colors">Contact Us</button></li>
-                    <li><button className="hover:text-white transition-colors">Privacy Policy</button></li>
-                  </ul>
+                  <h3 className="text-xl font-bold">Can I Try This?</h3>
+                  <p className="text-gray-400 text-sm">Real Challenges, Real Skills</p>
                 </div>
               </div>
-
-              <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+              <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                A safe space to explore real-world challenges in design, development, writing, data, and more.
+              </p>
+              <div className="flex justify-center space-x-6 mb-8">
+                <button onClick={() => handleNavigate('challenges')} className="text-gray-400 hover:text-white transition-colors">Challenges</button>
+                <button onClick={() => handleNavigate('projects')} className="text-gray-400 hover:text-white transition-colors">Projects</button>
+                <button onClick={() => handleNavigate('blog')} className="text-gray-400 hover:text-white transition-colors">Blog</button>
+                <button onClick={() => handleNavigate('community')} className="text-gray-400 hover:text-white transition-colors">Community</button>
+              </div>
+              <div className="border-t border-gray-800 pt-8 text-gray-400">
                 <p>&copy; 2024 Can I Try This? All rights reserved.</p>
               </div>
             </div>
           </footer>
         )}
-         <ScrollToTop />
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );

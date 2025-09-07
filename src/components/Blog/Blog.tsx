@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Calendar, User, Clock, Tag, Star, ExternalLink } from 'lucide-react';
 
 export interface BlogPostData {
@@ -13,73 +13,37 @@ export interface BlogPostData {
   featured: boolean;
 }
 
-// Sample data embedded in component for now
-const samplePosts: BlogPostData[] = [
-  {
-    id: 1,
-    title: "Creating Inclusive Development Environments",
-    date: "2024-01-15",
-    author: "Sarah Chen",
-    summary: "Learn how to foster welcoming, accessible development environments where everyone can contribute meaningfully, regardless of their background or experience level.",
-    content: "Creating truly inclusive development environments goes beyond just writing accessible code. It's about building communities where every voice is heard, every contribution is valued, and everyone has the opportunity to grow...",
-    tags: ["inclusion", "community", "accessibility"],
-    readTime: 5,
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Collaborative Coding: Building Together",
-    date: "2024-01-22",
-    author: "Alex Rivera",
-    summary: "Discover the power of collaborative development and how diverse teams create better, more innovative solutions through respectful teamwork.",
-    content: "The best software is built by diverse teams working together with mutual respect and shared goals. Collaborative coding isn't just about version control—it's about creating an environment where different perspectives strengthen the final product...",
-    tags: ["collaboration", "teamwork", "diversity"],
-    readTime: 7,
-    featured: false
-  },
-  {
-    id: 3,
-    title: "Mentorship in Tech: Giving and Receiving",
-    date: "2024-01-29",
-    author: "Jordan Kim",
-    summary: "Explore how mentorship creates positive cycles of learning and growth, building stronger, more supportive tech communities for everyone.",
-    content: "Mentorship is one of the most powerful tools we have for creating positive change in tech. Whether you're seeking guidance or ready to share your knowledge, mentorship relationships benefit everyone involved...",
-    tags: ["mentorship", "learning", "community"],
-    readTime: 6,
-    featured: true
-  },
-  {
-    id: 4,
-    title: "Accessibility-First Development",
-    date: "2024-02-05",
-    author: "Maya Patel",
-    summary: "Learn why building with accessibility in mind from day one creates better experiences for everyone, not just users with disabilities.",
-    content: "Accessibility isn't an afterthought—it's a fundamental part of good design and development. When we build with accessibility in mind from the start, we create products that work better for everyone...",
-    tags: ["accessibility", "inclusive-design", "best-practices"],
-    readTime: 8,
-    featured: false
-  },
-  {
-    id: 5,
-    title: "Community Spotlight: Diverse Voices in Tech",
-    date: "2024-02-12",
-    author: "Community Team",
-    summary: "Celebrating the diverse voices and unique perspectives that make our tech community stronger, more innovative, and more welcoming for everyone.",
-    content: "This month, we're highlighting the incredible diversity of voices in our community. From different cultural backgrounds to varied career paths, our members bring unique perspectives that enrich our collective learning...",
-    tags: ["community", "diversity", "spotlight"],
-    readTime: 4,
-    featured: true
-  }
-];
-
 export const Blog: React.FC = () => {
-  const [filteredPosts, setFilteredPosts] = useState<BlogPostData[]>(samplePosts);
+  const [posts, setPosts] = useState<BlogPostData[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPostData[]>([]);
   const [selectedPost, setSelectedPost] = useState<BlogPostData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string>('all');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const response = await fetch('./data/blog.json');
+        if (!response.ok) {
+          throw new Error('Failed to load blog posts');
+        }
+        const data = await response.json();
+        setPosts(data);
+        setFilteredPosts(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load blog posts');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, []);
 
   const getAllTags = () => {
-    const allTags = samplePosts.flatMap(post => post.tags);
+    const allTags = posts.flatMap(post => post.tags);
     return [...new Set(allTags)].sort();
   };
 
@@ -94,7 +58,7 @@ export const Blog: React.FC = () => {
   };
 
   const filterPosts = (search: string, tag: string) => {
-    let filtered = samplePosts;
+    let filtered = posts;
 
     if (search) {
       filtered = filtered.filter(post =>
@@ -119,6 +83,35 @@ export const Blog: React.FC = () => {
       day: 'numeric'
     });
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading blog posts...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 flex items-center justify-center">
+        <div className="text-center bg-white p-8 rounded-lg shadow-lg max-w-md">
+          <div className="text-red-500 text-4xl mb-4">⚠️</div>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Failed to Load Blog Posts</h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (selectedPost) {
     return (

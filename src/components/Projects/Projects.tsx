@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, ExternalLink, Filter, Star } from 'lucide-react';
 
 export interface Project {
@@ -11,66 +11,45 @@ export interface Project {
   featured: boolean;
 }
 
-// Sample data embedded in component for now
-const sampleProjects: Project[] = [
-  {
-    id: 1,
-    title: "Inclusive Learning Platform",
-    description: "A collaborative learning platform designed for accessibility and diverse learning styles. Join our welcoming community to build features that help everyone learn together, regardless of background or ability.",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "TailwindCSS"],
-    githubUrl: "https://github.com/example/inclusive-learning",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Community Task Manager",
-    description: "An open-source task management tool built by and for diverse teams. We welcome contributors of all skill levels and backgrounds to help create better collaboration tools for everyone.",
-    technologies: ["Vue.js", "Express.js", "PostgreSQL", "Socket.io"],
-    githubUrl: "https://github.com/example/community-tasks",
-    featured: false
-  },
-  {
-    id: 3,
-    title: "Accessible Weather App",
-    description: "A weather application prioritizing accessibility and inclusive design. Perfect for new contributors to learn about WCAG compliance while building something useful for everyone.",
-    technologies: ["JavaScript", "CSS3", "Weather API", "Chart.js"],
-    githubUrl: "https://github.com/example/accessible-weather",
-    featured: true
-  },
-  {
-    id: 4,
-    title: "Mentorship Matching Platform",
-    description: "Connect learners with mentors in a safe, supportive environment. This project emphasizes creating inclusive spaces where everyone can grow and share knowledge respectfully.",
-    technologies: ["React", "Next.js", "Prisma", "Vercel"],
-    githubUrl: "https://github.com/example/mentorship-platform",
-    featured: false
-  },
-  {
-    id: 5,
-    title: "Diversity in Tech Blog",
-    description: "A collaborative blog platform celebrating diverse voices in technology. Contributors from all backgrounds are encouraged to share their stories, experiences, and technical insights.",
-    technologies: ["Gatsby", "MDX", "GraphQL", "Netlify"],
-    githubUrl: "https://github.com/example/diversity-blog",
-    featured: true
-  }
-];
-
 export const Projects: React.FC = () => {
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(sampleProjects);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [selectedTech, setSelectedTech] = useState<string>('all');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const response = await fetch('./data/projects.json');
+        if (!response.ok) {
+          throw new Error('Failed to load projects');
+        }
+        const data = await response.json();
+        setProjects(data);
+        setFilteredProjects(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load projects');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
 
   const getAllTechnologies = () => {
-    const allTechs = sampleProjects.flatMap(project => project.technologies);
+    const allTechs = projects.flatMap(project => project.technologies);
     return [...new Set(allTechs)].sort();
   };
 
   const handleTechFilter = (tech: string) => {
     setSelectedTech(tech);
     if (tech === 'all') {
-      setFilteredProjects(sampleProjects);
+      setFilteredProjects(projects);
     } else {
       setFilteredProjects(
-        sampleProjects.filter(project => 
+        projects.filter(project => 
           project.technologies.some(t => 
             t.toLowerCase().includes(tech.toLowerCase())
           )
@@ -78,6 +57,35 @@ export const Projects: React.FC = () => {
       );
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 flex items-center justify-center">
+        <div className="text-center bg-white p-8 rounded-lg shadow-lg max-w-md">
+          <div className="text-red-500 text-4xl mb-4">⚠️</div>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Failed to Load Projects</h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
