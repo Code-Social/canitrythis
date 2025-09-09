@@ -3,6 +3,8 @@ import { Header } from './components/Layout/Header';
 import { Hero } from './components/Home/Hero';
 import { Features } from './components/Home/Features';
 import { HowItWorks } from './components/Home/HowItWorks';
+import { Testimonials } from './components/Home/Testimonials';
+import { FAQSection } from './components/Home/FAQSection';
 import { ChallengeBoard } from './components/Challenges/ChallengeBoard';
 import { ChallengeDetail } from './components/Challenges/ChallengeDetail';
 import { Profile } from './components/Profile/Profile';
@@ -55,6 +57,8 @@ function App() {
             <Hero onNavigate={handleNavigate} />
             <Features />
             <HowItWorks />
+            <Testimonials />
+            <FAQSection/>
           </>
         );
     }
