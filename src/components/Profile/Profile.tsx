@@ -1,6 +1,7 @@
 import React from 'react';
 import StreakCalendar from "./StreakCalendar";
-import { Award, BookOpen, Star, TrendingUp, Calendar, Target } from 'lucide-react';
+import { BookOpen, Star, TrendingUp, Calendar, Target } from 'lucide-react';
+import { BadgeIcon, type BadgeKey } from "../BadgeIcon";
 
 export const Profile: React.FC = () => {
   const completedChallenges = [
@@ -40,13 +41,13 @@ export const Profile: React.FC = () => {
     { label: 'Avg Rating', value: '4.6', icon: Star, color: 'text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900' }
   ];
 
-  const achievements = [
-    { title: 'First Challenge', description: 'Completed your first challenge', earned: true },
-    { title: 'Design Master', description: 'Completed 10 design challenges', earned: true },
-    { title: 'Code Warrior', description: 'Completed 10 development challenges', earned: true },
-    { title: 'Community Helper', description: 'Provided feedback on 25 submissions', earned: false },
-    { title: 'Streak Master', description: 'Completed challenges for 7 days straight', earned: false },
-    { title: 'All Rounder', description: 'Completed challenges in all domains', earned: false }
+  const achievements: Array<{ key: BadgeKey; title: string; description: string; earned: boolean }> = [
+    { key: 'first-challenge',  title: 'First Challenge',  description: 'Completed your first challenge',            earned: true  },
+    { key: 'design-master',    title: 'Design Master',    description: 'Completed 10 design challenges',           earned: true  },
+    { key: 'code-warrior',     title: 'Code Warrior',     description: 'Completed 10 development challenges',      earned: true  },
+    { key: 'community-helper', title: 'Community Helper', description: 'Provided feedback on 25 submissions',      earned: false },
+    { key: 'streak-master',    title: 'Streak Master',    description: 'Completed challenges for 7 days straight', earned: false },
+    { key: 'all-rounder',      title: 'All Rounder',      description: 'Completed challenges in all domains',      earned: false },
   ];
 
   return (
@@ -149,27 +150,31 @@ export const Profile: React.FC = () => {
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">250 XP needed for Level 4: Advanced</p>
             </div>
+
             {/* 30-Day Streak */}
-<div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-    30-Day Streak
-  </h3>
-  <StreakCalendar storageKey="cit_activeDates" />
-</div>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">30-Day Streak</h3>
+              <StreakCalendar storageKey="cit_activeDates" />
+            </div>
 
             {/* Achievements */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Achievements</h3>
               <div className="space-y-3">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className={`flex items-center space-x-3 p-3 rounded-lg ${
-                    achievement.earned ? 'bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800' : 'bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600'
-                  }`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      achievement.earned ? 'bg-green-500 text-white' : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400'
-                    }`}>
-                      <Award className="h-4 w-4" />
+                  <div
+                    key={index}
+                    className={`flex items-start gap-2 p-3 rounded-lg ${
+                      achievement.earned
+                        ? 'bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800'
+                        : 'bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600'
+                    }`}
+                  >
+                    {/* Icon inherits current text color for light/dark */}
+                    <div className={`${achievement.earned ? 'text-green-900 dark:text-green-300' : 'text-gray-700 dark:text-gray-300'}`}>
+                      <BadgeIcon kind={achievement.key} className="h-4 w-4 mt-0.5" />
                     </div>
+
                     <div className="flex-1">
                       <p className={`text-sm font-medium ${achievement.earned ? 'text-green-900 dark:text-green-300' : 'text-gray-700 dark:text-gray-300'}`}>
                         {achievement.title}
@@ -200,8 +205,8 @@ export const Profile: React.FC = () => {
                       <span className="text-sm text-gray-500 dark:text-gray-400">{item.completed}</span>
                     </div>
                     <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div 
-                        className={`${item.color} h-2 rounded-full`} 
+                      <div
+                        className={`${item.color} h-2 rounded-full`}
                         style={{ width: `${(item.completed / 10) * 100}%` }}
                       ></div>
                     </div>
