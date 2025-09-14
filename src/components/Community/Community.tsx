@@ -14,6 +14,10 @@ interface Submission {
   isLiked?: boolean;
 }
 
+interface CommunityProps {
+  onNavigate: (page: string) => void;
+}
+
 const mockSubmissions: Submission[] = [
   {
     id: '1',
@@ -61,7 +65,7 @@ const mockSubmissions: Submission[] = [
   }
 ];
 
-export const Community: React.FC = () => {
+export const Community: React.FC<CommunityProps> = ({ onNavigate }) => {
   const [selectedDomain, setSelectedDomain] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [likedSubmissions, setLikedSubmissions] = useState<Set<string>>(new Set());
@@ -223,7 +227,10 @@ export const Community: React.FC = () => {
           <p className="text-purple-700 dark:text-purple-300 mb-6">
             Complete challenges and get valuable feedback from our supportive community
           </p>
-          <button className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-all hover:transform hover:scale-105">
+          <button
+            onClick={() => onNavigate('challenges')}
+            className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-all hover:transform hover:scale-105"
+          >
             Browse Challenges
           </button>
         </div>
