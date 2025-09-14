@@ -12,8 +12,8 @@ import { Challenge } from './components/Challenges/ChallengeCard';
 import { ThemeProvider } from './themeContent'; // Import the new ThemeProvider
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
-
 function App() {
+   
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
 
@@ -48,7 +48,7 @@ function App() {
       case 'submit':
         return <SubmitChallenge />;
       case 'community':
-        return <Community />;
+        return <Community onNavigate={handleNavigate} />; {/* ✅ updated */}
       default:
         return (
           <>
