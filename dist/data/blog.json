@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Getting Started with Real-World Challenges",
+    "date": "2024-01-15",
+    "author": "Sarah Chen",
+    "summary": "Learn how to approach real-world coding challenges and build practical skills that matter in your career.",
+    "content": "Real-world challenges are different from tutorial exercises. They require you to think critically, make decisions with incomplete information, and solve problems that don't have a single correct answer...",
+    "tags": ["beginner", "career", "learning"],
+    "readTime": 5,
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Building Your First Full-Stack Project",
+    "date": "2024-01-22",
+    "author": "Mike Rodriguez",
+    "summary": "A comprehensive guide to planning, building, and deploying your first full-stack application from scratch.",
+    "content": "Building a full-stack application can seem overwhelming, but breaking it down into manageable steps makes it achievable. Let's walk through the entire process...",
+    "tags": ["full-stack", "project", "deployment"],
+    "readTime": 8,
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "The Art of Code Review: Best Practices",
+    "date": "2024-01-29",
+    "author": "Emily Johnson",
+    "summary": "Master the essential skill of code review with these proven techniques and best practices from industry experts.",
+    "content": "Code review is one of the most important skills in software development, yet it's rarely taught formally. Here's what you need to know...",
+    "tags": ["code-review", "collaboration", "best-practices"],
+    "readTime": 6,
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Debugging Like a Pro: Advanced Techniques",
+    "date": "2024-02-05",
+    "author": "David Kim",
+    "summary": "Level up your debugging skills with advanced techniques and tools that will save you hours of frustration.",
+    "content": "Debugging is an art form that separates good developers from great ones. These advanced techniques will transform how you approach problems...",
+    "tags": ["debugging", "tools", "productivity"],
+    "readTime": 7,
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Community Spotlight: Success Stories",
+    "date": "2024-02-12",
+    "author": "Alex Thompson",
+    "summary": "Inspiring stories from our community members who landed their dream jobs through practical skill building.",
+    "content": "This month, we're highlighting amazing success stories from our community members who have transformed their careers...",
+    "tags": ["community", "success-stories", "inspiration"],
+    "readTime": 4,
+    "featured": true
+  }
+]

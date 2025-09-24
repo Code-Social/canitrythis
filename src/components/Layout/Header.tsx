@@ -30,9 +30,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             {[
               { key: 'home', label: 'Home' },
               { key: 'challenges', label: 'Challenges' },
+              { key: 'projects', label: 'Projects' },
+              { key: 'blog', label: 'Blog' },
+              { key: 'community', label: 'Community' },
               { key: 'profile', label: 'Profile' },
-              { key: 'submit', label: 'Submit Challenge' },
-              { key: 'community', label: 'Community' }
+              { key: 'submit', label: 'Submit Challenge' }
             ].map(({ key, label }) => (
               <button
                 key={key}
