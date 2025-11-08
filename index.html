@@ -1,13 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Can I Try This? - Real Challenges Platform</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Motivational quotes -->
+    <div class="quotes-container">
+        <div class="quote" style="top: 10%; left: 5%;">Stay Hungry</div>
+        <div class="quote" style="top: 20%; right: 5%;">Keep Pushing</div>
+        <div class="quote" style="bottom: 15%; left: 10%;">Believe & Achieve</div>
+        <div class="quote" style="bottom: 20%; right: 10%;">Hustle Hard</div>
+        <div class="quote" style="top: 50%; left: 50%;">Dream Big</div>
+    </div>
+
+    <!-- Chatbox -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>AI Assistant</h2>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <form class="chat-input" id="chatForm">
+            <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
