@@ -1,0 +1,11 @@
+order_id,order_date,category,product,quantity,revenue,customer_type
+1001,2024-01-05,Electronics,Headphones,2,400,New
+1002,2024-01-12,Clothing,T-Shirt,3,75,Returning
+1003,2024-02-03,Electronics,Keyboard,1,120,Returning
+1004,2024-02-15,Home,Blender,1,220,New
+1005,2024-03-01,Clothing,Jacket,1,150,Returning
+1006,2024-03-18,Home,Vacuum Cleaner,1,500,New
+1007,2024-03-22,Electronics,Mouse,4,160,Returning
+1008,2024-04-05,Clothing,Shoes,2,300,New
+1009,2024-04-19,Electronics,Monitor,1,350,Returning
+1010,2024-05-10,Home,Coffee Maker,1,180,New
