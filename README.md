@@ -78,10 +78,6 @@ npm install
 npm start
 ```
 
-Visit `http://localhost:3000` in your browser.
-
----
-
 ## 🌱 How to Contribute
 
 We welcome beginners and first-time contributors!
