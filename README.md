@@ -117,7 +117,7 @@ We welcome beginners and first-time contributors!
 
 ---
 
-## ✨ Project Mentors
+## ✨ Project Maintainers
 
 <table>
   <tr>
@@ -133,6 +133,29 @@ We welcome beginners and first-time contributors!
         <img src="https://avatars.githubusercontent.com/u/90749649?v=4" width="100px;" alt="Rizwan102003"/>
         <br />
         <sub><b>Rizwan102003</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## ✨ WOCS Mentors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/arushi2610">
+        <img src="https://avatars.githubusercontent.com/u/91735359?v=4" width="100px;" alt="arushi2610"/>
+        <br />
+        <sub><b>arushi2610</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/rishaan007">
+        <img src="https://avatars.githubusercontent.com/rishaan007" width="100px;" alt="rishaan007"/>
+        <br />
+        <sub><b>rishaan007</b></sub>
       </a>
     </td>
   </tr>
