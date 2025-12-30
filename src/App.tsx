@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import { useState } from 'react';
+import Footer from './components/Layout/Footer';
 import { Header } from './components/Layout/Header';
 import { Hero } from './components/Home/Hero';
 import { ChallengeBoard } from './components/Challenges/ChallengeBoard';
@@ -91,32 +91,7 @@ function App() {
           {renderPage()}
         </main>
 
-        {/* Footer */}
-        <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center mb-6">
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
-                <span className="font-bold text-xl">CT</span>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold">Can I Try This?</h3>
-                <p className="text-gray-400 text-sm">Real Challenges, Real Skills</p>
-              </div>
-            </div>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-              A safe space to explore real-world challenges in design, development, writing, data, and more.
-            </p>
-            <div className="flex justify-center space-x-6 mb-8 flex-wrap gap-y-4">
-              <button onClick={() => handleNavigate('challenges')} className="text-gray-400 hover:text-white transition-colors">Challenges</button>
-              <button onClick={() => handleNavigate('projects')} className="text-gray-400 hover:text-white transition-colors">Projects</button>
-              <button onClick={() => handleNavigate('blog')} className="text-gray-400 hover:text-white transition-colors">Blog</button>
-              <button onClick={() => handleNavigate('community')} className="text-gray-400 hover:text-white transition-colors">Community</button>
-            </div>
-            <div className="border-t border-gray-800 pt-8 text-gray-400">
-              <p>&copy; 2024 Can I Try This? All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer onNavigate={handleNavigate} />
         <ScrollToTop />
       </div>
     </ThemeProvider>
