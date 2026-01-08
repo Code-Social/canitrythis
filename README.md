@@ -1,3 +1,17 @@
+## 📚 Table of Contents
+
+- [Overview](#-can-i-try-this--real-challenges-real-skills)
+- [What Can You Do Here?](#-what-can-you-do-here)
+- [Tech Stack](#-tech-stack)
+- [Pages in the MVP](#-pages-in-the-mvp)
+- [Getting Started](#-getting-started-for-beginners)
+- [How to Contribute](#-how-to-contribute)
+- [Community and Help](#-community-and-help)
+- [Project Maintainers](#-project-maintainers)
+- [WOCS Mentors](#-wocs-mentors)
+- [Code of Conduct](#-code-of-conduct)
+- [Support the Project](#-support-the-project)
+
 # 🎯 Can I Try This? – Real Challenges, Real Skills
 
 Welcome to **Can I Try This?**, a fun and beginner-friendly platform where you can explore **real-world challenges** in design, development, writing, data, and more. These aren't just made-up exercises. They come from real tasks, community submissions, and partner projects.
@@ -10,6 +24,7 @@ Welcome to **Can I Try This?**, a fun and beginner-friendly platform where you c
 
 ✨ **Explore Real Challenges**  
 Browse challenges by domain, level, or tag. New to design? Try making a social media post. Learning SQL? Analyze a real dataset. You’ll find:
+
 - 🎨 Design Challenges
 - 🧑‍💻 Development Tasks
 - ✍️ Writing Prompts
@@ -18,12 +33,14 @@ Browse challenges by domain, level, or tag. New to design? Try making a social m
 
 🔒 **Login to Play**  
 Sign up to:
+
 - Submit your solutions (GitHub link, screenshot, Google Doc, etc.)
 - Receive feedback from the community
 - Track your completed challenges
 
 📈 **Levels and Tags**  
 Each challenge has:
+
 - A difficulty level (Easy, Medium, Hard)
 - A domain tag (Design, Dev, Writing, etc.)
 - Optional bonus missions to try something new
@@ -41,30 +58,33 @@ Built something cool or faced a real-world task? Submit it as a challenge for ot
 
 ## 🧰 Tech Stack
 
-| Part           | Tech Used                           |
-|----------------|-------------------------------------|
-| Frontend       | React.js, TailwindCSS               |
-| Backend        | Node.js with Express or Firebase    |
-| Database       | MongoDB or Firebase Realtime DB     |
-| Auth           | Firebase Authentication             |
-| Hosting        | Vercel, Render, or Firebase Hosting |
+| Part     | Tech Used                           |
+| -------- | ----------------------------------- |
+| Frontend | React.js, TailwindCSS               |
+| Backend  | Node.js with Express or Firebase    |
+| Database | MongoDB or Firebase Realtime DB     |
+| Auth     | Firebase Authentication             |
+| Hosting  | Vercel, Render, or Firebase Hosting |
 
 ---
+
+<a id="-pages-in-the-mvp"></a>
 
 ## 🧑‍💻 Pages in the MVP
 
 1. **Home** – Quick intro, trending challenges, how it works
 2. **Challenge Board** – Filterable/searchable list of challenges, Full info + submit your response button
-5. **My Profile** – Track completed challenges + bookmarks
-6. **Submit a Challenge** – Form to suggest a new challenge
-7. **Community Feedback** – Browse comments and help others
-8. mentor panel: can approve challenges, problems, etc. 
+3. **My Profile** – Track completed challenges + bookmarks
+4. **Submit a Challenge** – Form to suggest a new challenge
+5. **Community Feedback** – Browse comments and help others
+6. mentor panel: can approve challenges, problems, etc.
 
 ---
 
 ## 🚀 Getting Started (For Beginners)
 
 ### 📦 Prerequisites
+
 - Git + GitHub
 - Node.js and npm
 - Code editor (VS Code recommended)
@@ -83,6 +103,7 @@ npm start
 We welcome beginners and first-time contributors!
 
 ### 👣 Step-by-Step Guide
+
 1. Go to the Issues tab
 2. Look for `good first issue` or `feature request`
 3. Comment to get assigned
@@ -91,6 +112,7 @@ We welcome beginners and first-time contributors!
 6. Create a pull request – we’ll review and support you
 
 ### 🛠️ Good First Tasks
+
 - Build a challenge card component
 - Add domain filter buttons
 - Create profile tracking logic
@@ -100,7 +122,6 @@ We welcome beginners and first-time contributors!
 ---
 
 ## 💬 Community and Help
-
 
 <p>
   <a href="https://discord.gg/MSTNyRSPYW" target="_blank">
@@ -113,7 +134,6 @@ We welcome beginners and first-time contributors!
 <a href="https://codesocial.tech" target="_blank">
   <img src="https://raw.githubusercontent.com/Sejal-hani/canitrythis/sp/assets/code_social_logo.png" alt="Code Social" height="28"/>
 </a>
-
 
 ---
 
@@ -163,6 +183,8 @@ We welcome beginners and first-time contributors!
 
 ---
 
+<a id="-code-of-conduct"></a>
+
 ## ❤️ Code of Conduct
 
 Be curious, kind, and constructive. Feedback is a gift.
@@ -171,5 +193,5 @@ Be curious, kind, and constructive. Feedback is a gift.
 
 ## ⭐ Support the Project
 
-Star this repo if you like the idea. Share with friends. 
+Star this repo if you like the idea. Share with friends.
 Let’s build the chillest skill-building community on the internet. 🌱
