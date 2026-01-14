@@ -156,8 +156,23 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 { icon: Users, color: 'text-green-400', value: '12K+', label: 'Learners' },
                 { icon: Star, color: 'text-sky-400', value: '98%', label: 'Success Rate' },
               ].map((stat, index) => (
-                <div key={index} className="text-center bg-white/5 dark:bg-gray-800/20 backdrop-blur-md rounded-xl p-6 border border-white/10 dark:border-gray-700/30 transition-all duration-300 hover:bg-white/10 hover:border-white/20 transform hover:-translate-y-1">
-                  <stat.icon className={`h-8 w-8 ${stat.color} mx-auto mb-3`} />
+                <div
+                  key={index}
+                  className="
+                    group
+                    text-center
+                    bg-white/5 dark:bg-gray-800/20
+                    backdrop-blur-md rounded-xl p-6
+                    border border-white/10 dark:border-gray-700/30
+                    transition-all duration-300 ease-out
+                    transform
+                    hover:-translate-y-1 hover:scale-105
+                    hover:bg-white/10 hover:border-white/20
+                    hover:shadow-xl hover:shadow-purple-500/25
+                    focus-within:scale-105
+                  "
+                  >
+                  <stat.icon className={`h-8 w-8 ${stat.color} mx-auto mb-3 transition-transform duration-300 group-hover:scale-110`}/>
                   <div className="text-3xl font-bold text-white">{stat.value}</div>
                   <div className="text-purple-200 dark:text-gray-400 mt-1">{stat.label}</div>
                 </div>
