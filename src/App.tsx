@@ -113,7 +113,7 @@ function App() {
               <button onClick={() => handleNavigate('community')} className="text-gray-400 hover:text-white transition-colors">Community</button>
             </div>
             <div className="border-t border-gray-800 pt-8 text-gray-400">
-              <p>&copy; 2024 Can I Try This? All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Can I Try This? All rights reserved.</p>
             </div>
           </div>
         </footer>
