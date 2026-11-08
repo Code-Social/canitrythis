@@ -142,26 +142,20 @@ We welcome beginners and first-time contributors!
 
 ## ✨ WOCS Mentors
 
+
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/arushi2610">
-        <img src="https://avatars.githubusercontent.com/u/91735359?v=4" width="100px;" alt="arushi2610"/>
+      <a href="https://github.com/anamfareeha0-byte">
+        <img src="https://github.com/anamfareeha0-byte.png"
+             width="100px;"
+             alt="ANAM FAREEHA"/>
         <br />
-        <sub><b>arushi2610</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/rishaan007">
-        <img src="https://avatars.githubusercontent.com/rishaan007" width="100px;" alt="rishaan007"/>
-        <br />
-        <sub><b>rishaan007</b></sub>
+        <sub><b>ANAM FAREEHA</b></sub>
       </a>
     </td>
   </tr>
 </table>
-
----
 
 ## ❤️ Code of Conduct
 
