@@ -141,30 +141,21 @@ We welcome beginners and first-time contributors!
 ---
 
 ## ✨ WOCS Mentors
-
-
 <table>
   <tr>
     <td align="center">
       <a href="https://github.com/anamfareeha0-byte">
         <img src="https://github.com/anamfareeha0-byte.png"
-             width="100px"
+             width="100px;"
              alt="ANAM FAREEHA"/>
         <br />
         <sub><b>ANAM FAREEHA</b></sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/UTKRISHT-ICS52">
-        <img src="https://github.com/UTKRISHT-ICS52.png"
-             width="100px"
-             alt="UTKRISHT PATEL"/>
-        <br />
-        <sub><b>UTKRISHT PATEL</b></sub>
-      </a>
-    </td>
   </tr>
 </table>
+
+
 
 ## ❤️ Code of Conduct
 
