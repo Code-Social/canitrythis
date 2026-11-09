@@ -1,4 +1,4 @@
-#🎯 Can I Try This? – Real Challenges, Real Skills
+#🎯Can I Try This? – Real Challenges, Real Skills
 
 Welcome to **Can I Try This?**, a fun and beginner-friendly platform where you can explore **real-world challenges** in design, development, writing, data, and more. These aren't just made-up exercises. They come from real tasks, community submissions, and partner projects.
 
