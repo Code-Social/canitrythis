@@ -69,12 +69,33 @@ Built something cool or faced a real-world task? Submit it as a challenge for ot
 - Node.js and npm
 - Code editor (VS Code recommended)
 
-### 🛠️ Local Setup
+## 🛠️ Local Setup
 
+> First, ensure you have Git installed on your device. Click [here](https://git-scm.com/install/) to install Git if
+> it is not already installed.
+
+Run this command in your terminal to check if Git was installed successfully:
+```bash
+git --version
+```
+
+### 1️⃣ Clone the Repository to your Device
 ```bash
 git clone https://github.com/<your-org>/can-i-try-this.git
+```
+
+### 2️⃣ Move into the Project Directory 
+```bash
 cd can-i-try-this
+```
+
+### 3️⃣ Install Dependencies
+```bash
 npm install
+```
+
+### 4️⃣ Run the Project
+```bash
 npm start
 ```
 
@@ -175,4 +196,4 @@ Be curious, kind, and constructive. Feedback is a gift.
 ## ⭐ Support the Project
 
 Star this repo if you like the idea. Share with friends. 
-Let’s build the chillest skill-building community on the internet. 🌱
+Let’s build the chillest skill-building community on the internet...🌱
