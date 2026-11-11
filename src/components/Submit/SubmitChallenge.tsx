@@ -38,11 +38,41 @@ export const SubmitChallenge: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newChallenge = {
+      id: `custom-${Date.now()}`,
+      title: formData.title,
+      description: formData.description,
+      domain: formData.domain || 'Development',
+      difficulty: formData.difficulty || 'Medium',
+      estimatedTime: formData.estimatedTime || '2-4 hours',
+      participants: 1,
+      rating: 5.0,
+      tags: formData.tags.filter(t => t.trim() !== '')
+    };
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('custom_challenges') || '[]');
+      localStorage.setItem('custom_challenges', JSON.stringify([newChallenge, ...existing]));
+    } catch (err) {
+      console.warn('Failed to save challenge to localStorage:', err);
+    }
+
+    setIsSubmitted(true);
+    setFormData({
+      title: '',
+      description: '',
+      domain: '',
+      difficulty: '',
+      estimatedTime: '',
+      requirements: [''],
+      tags: [''],
+      resources: ['']
+    });
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 transition-colors duration-300">

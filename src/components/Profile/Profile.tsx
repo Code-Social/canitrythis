@@ -1,42 +1,69 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StreakCalendar from "./StreakCalendar";
 import { Award, BookOpen, Star, TrendingUp, Calendar, Target } from 'lucide-react';
 
+const defaultCompletedChallenges = [
+  {
+    id: '1',
+    title: 'Build a Weather App',
+    domain: 'Development',
+    difficulty: 'Medium',
+    completedAt: '2024-01-15',
+    rating: 4.5,
+    feedback: 'Great implementation with clean code!'
+  },
+  {
+    id: '2',
+    title: 'Design a Landing Page',
+    domain: 'Design',
+    difficulty: 'Easy',
+    completedAt: '2024-01-10',
+    rating: 4.8,
+    feedback: 'Beautiful design with excellent UX principles.'
+  },
+  {
+    id: '3',
+    title: 'Write API Documentation',
+    domain: 'Writing',
+    difficulty: 'Medium',
+    completedAt: '2024-01-05',
+    rating: 4.3,
+    feedback: 'Clear and comprehensive documentation.'
+  }
+];
+
 export const Profile: React.FC = () => {
-  const completedChallenges = [
-    {
-      id: '1',
-      title: 'Build a Weather App',
-      domain: 'Development',
-      difficulty: 'Medium',
-      completedAt: '2024-01-15',
-      rating: 4.5,
-      feedback: 'Great implementation with clean code!'
-    },
-    {
-      id: '2',
-      title: 'Design a Landing Page',
-      domain: 'Design',
-      difficulty: 'Easy',
-      completedAt: '2024-01-10',
-      rating: 4.8,
-      feedback: 'Beautiful design with excellent UX principles.'
-    },
-    {
-      id: '3',
-      title: 'Write API Documentation',
-      domain: 'Writing',
-      difficulty: 'Medium',
-      completedAt: '2024-01-05',
-      rating: 4.3,
-      feedback: 'Clear and comprehensive documentation.'
-    }
-  ];
+  const [completedChallenges, setCompletedChallenges] = useState(() => {
+    try {
+      const saved = localStorage.getItem('completedChallenges');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      }
+    } catch {}
+    return defaultCompletedChallenges;
+  });
+
+  const [bookmarkCount, setBookmarkCount] = useState(12);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('bookmarkedChallenges');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setBookmarkCount(parsed.length);
+        }
+      }
+    } catch {}
+  }, []);
 
   const stats = [
-    { label: 'Completed', value: 23, icon: Target, color: 'text-green-600 bg-green-100 dark:text-green-400 dark:bg-green-900' },
+    { label: 'Completed', value: completedChallenges.length, icon: Target, color: 'text-green-600 bg-green-100 dark:text-green-400 dark:bg-green-900' },
     { label: 'In Progress', value: 3, icon: TrendingUp, color: 'text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900' },
-    { label: 'Bookmarked', value: 12, icon: BookOpen, color: 'text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900' },
+    { label: 'Bookmarked', value: bookmarkCount, icon: BookOpen, color: 'text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900' },
     { label: 'Avg Rating', value: '4.6', icon: Star, color: 'text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900' }
   ];
 

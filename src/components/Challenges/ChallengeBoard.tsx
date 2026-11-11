@@ -88,6 +88,23 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [bookmarkedChallenges, setBookmarkedChallenges] = useState<Set<string>>(new Set());
 
+  const [customChallenges, setCustomChallenges] = useState<Challenge[]>([]);
+
+  // Load custom submitted challenges
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('custom_challenges');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setCustomChallenges(parsed);
+        }
+      }
+    } catch (err) {
+      console.warn('Failed to parse custom_challenges from localStorage:', err);
+    }
+  }, []);
+
   // Load bookmarks safely
   useEffect(() => {
     try {
@@ -118,10 +135,14 @@ export const ChallengeBoard: React.FC<ChallengeBoardProps> = ({ onChallengeSelec
   const domains = ['All', 'Design', 'Development', 'Writing', 'Data', 'Creative'];
   const difficulties = ['All', 'Easy', 'Medium', 'Hard'];
 
+  const allChallenges = useMemo(() => {
+    return [...customChallenges, ...mockChallenges];
+  }, [customChallenges]);
+
   // Filter (memoized)
   const filteredChallenges = useMemo(() => {
     const q = searchTerm.trim().toLowerCase();
-    return mockChallenges.filter((challenge) => {
+    return allChallenges.filter((challenge) => {
       const matchesSearch =
         !q ||
         challenge.title.toLowerCase().includes(q) ||
