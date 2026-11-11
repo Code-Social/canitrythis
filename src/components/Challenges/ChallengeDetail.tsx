@@ -13,6 +13,27 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = () => {
+    if (!submissionContent.trim()) return;
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('completedChallenges') || '[]');
+      const newCompletion = {
+        id: challenge.id,
+        title: challenge.title,
+        domain: challenge.domain,
+        difficulty: challenge.difficulty,
+        completedAt: new Date().toISOString().split('T')[0],
+        submissionType,
+        submissionContent,
+        rating: challenge.rating,
+        feedback: 'Submitted successfully! Community feedback pending.'
+      };
+      const updated = [newCompletion, ...existing.filter((item: { id: string }) => item.id !== challenge.id)];
+      localStorage.setItem('completedChallenges', JSON.stringify(updated));
+    } catch (e) {
+      console.warn('Failed to save completion to localStorage:', e);
+    }
+
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
   };

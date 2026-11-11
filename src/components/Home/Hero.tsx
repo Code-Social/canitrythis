@@ -38,6 +38,8 @@ const Particles: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    let animationFrameId: number;
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => {
@@ -52,12 +54,15 @@ const Particles: React.FC = () => {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
         ctx.fill();
       });
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
 
-    return () => window.removeEventListener('resize', resizeCanvas);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
   }, []);
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
