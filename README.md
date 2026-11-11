@@ -141,8 +141,6 @@ We welcome beginners and first-time contributors!
 ---
 
 ## ✨ WOCS Mentors
-
-
 <table>
   <tr>
     <td align="center">
@@ -154,8 +152,19 @@ We welcome beginners and first-time contributors!
         <sub><b>ANAM FAREEHA</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/UTKRISHT-ICS52">
+        <img src="https://github.com/UTKRISHT-ICS52.png"
+             width="100px;"
+             alt="UTKARSH PATEL"/>
+        <br />
+        <sub><b>UTKARSH PATEL</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
+
+
 
 ## ❤️ Code of Conduct
 
