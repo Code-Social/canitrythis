@@ -175,4 +175,4 @@ Be curious, kind, and constructive. Feedback is a gift.
 ## ⭐ Support the Project
 
 Star this repo if you like the idea. Share with friends. 
-Let’s build the chillest skill-building community on the internet... 🌱
+Let’s build the chillest skill-building community on the internet...🌱
