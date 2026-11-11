@@ -117,14 +117,14 @@ export const ChallengeDetail: React.FC<ChallengeDetailProps> = ({ challenge, onB
               
               {/* Submission Type Selector */}
               <div className="flex space-x-1 bg-gray-100 dark:bg-gray-700 rounded-lg p-1 mb-6">
-                {[
+                {([
                   { type: 'link', icon: Link, label: 'Link' },
                   { type: 'file', icon: Upload, label: 'File' },
                   { type: 'text', icon: FileText, label: 'Text' }
-                ].map(({ type, icon: Icon, label }) => (
+                ] as const).map(({ type, icon: Icon, label }) => (
                   <button
                     key={type}
-                    onClick={() => setSubmissionType(type as any)}
+                    onClick={() => setSubmissionType(type)}
                     className={`flex-1 flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                       submissionType === type
                         ? 'bg-white dark:bg-gray-900 text-purple-600 dark:text-purple-400 shadow-sm'
