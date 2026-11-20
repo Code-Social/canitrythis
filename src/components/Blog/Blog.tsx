@@ -25,7 +25,7 @@ export const Blog: React.FC = () => {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const response = await fetch('./data/blog.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}data/blog.json`);
         if (!response.ok) {
           throw new Error('Failed to load blog posts');
         }

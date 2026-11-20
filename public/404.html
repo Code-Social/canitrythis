@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Loading Can I Try This?</title>
+  <script>
+    // GitHub Pages serves this page on a direct request for an application route.
+    // Redirect to the app's base and let index.html restore the requested URL.
+    const base = '/canitrythis/';
+    const requested = window.location.pathname + window.location.search + window.location.hash;
+    if (window.location.pathname.startsWith(base)) {
+      window.location.replace(base + '?__spa_redirect=' + encodeURIComponent(requested));
+    } else {
+      window.location.replace(base);
+    }
+  </script>
+</head>
+<body>
+  <p>Loading the requested page...</p>
+</body>
+</html>

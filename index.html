@@ -8,17 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Can I Try This? - Real Challenges Platform</title>
-  
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.png">
-  <link rel="alternate icon" type="image/png" href="assets/favicon.png" sizes="32x32">
-  <link rel="alternate icon" type="image/png" href="assets/favicon.png" sizes="16x16">
-  <link rel="apple-touch-icon" href="assets/favicon.png" sizes="180x180">
+
+  <link rel="icon" type="image/svg+xml" href="%BASE_URL%assets/favicon.png">
+  <link rel="alternate icon" type="image/png" href="%BASE_URL%assets/favicon.png" sizes="32x32">
+  <link rel="alternate icon" type="image/png" href="%BASE_URL%assets/favicon.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="%BASE_URL%assets/favicon.png" sizes="180x180">
 
   <meta name="theme-color" content="#5B2A86">
 
 </head>
 
 <body>
+  <script>
+    // Restore the route saved by public/404.html when GitHub Pages serves a deep link.
+    const redirect = new URLSearchParams(window.location.search).get('__spa_redirect');
+    const base = '%BASE_URL%';
+    if (redirect && redirect.startsWith(base) && !redirect.startsWith('//')) {
+      window.history.replaceState(null, '', redirect);
+    }
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
