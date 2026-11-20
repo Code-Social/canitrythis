@@ -1,13 +1,9 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { User, Menu, Bell, Search, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../../themeContent';
 
-interface HeaderProps {
-  currentPage: string;
-  onNavigate: (page: string) => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
+export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -23,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         <div className="flex justify-between items-center h-full">
           
           {/* Logo Section */}
-          <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
+          <Link className="flex items-center" to="/">
             <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-lg mr-3">
               <span className="font-bold text-xl">CT</span>
             </div>
@@ -35,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                 Real Skills, Real Growth
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Navigation - Increased spacing (space-x-12) for a looser fit */}
           <nav className="hidden md:flex items-center space-x-12">
@@ -48,17 +44,18 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               { key: 'profile', label: 'Profile' },
               { key: 'submit', label: 'Submit Challenge' }
             ].map(({ key, label }) => (
-              <button
+              <NavLink
                 key={key}
-                onClick={() => onNavigate(key)}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  currentPage === key
+                to={key === 'home' ? '/' : `/${key}`}
+                end={key === 'home'}
+                className={({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  isActive
                     ? 'text-purple-600 bg-purple-50 dark:bg-purple-900 dark:text-purple-400'
                     : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
               >
                 {label}
-              </button>
+              </NavLink>
             ))}
           </nav>
 
