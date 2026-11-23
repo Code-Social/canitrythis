@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Header } from './components/Layout/Header';
 import { Hero } from './components/Home/Hero';
 import { ChallengeBoard } from './components/Challenges/ChallengeBoard';
+import { ChallengeDetail } from './components/Challenges/ChallengeDetail';
+import { Challenge } from './components/Challenges/ChallengeCard';
 import { Profile } from './components/Profile/Profile';
 import { SubmitChallenge } from './components/Submit/SubmitChallenge';
 import { Community } from './components/Community/Community';
@@ -12,11 +14,12 @@ import { ThemeProvider } from './themeContent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
-  
   const [currentPage, setCurrentPage] = useState<string>('home');
+  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
+    setSelectedChallenge(null);
   };
 
   const renderPage = () => {
@@ -26,7 +29,19 @@ function App() {
       case 'blog':
         return <Blog />;
       case 'challenges':
-        return <ChallengeBoard onChallengeSelect={(challenge) => console.log('Selected challenge:', challenge)} />;
+        if (selectedChallenge) {
+          return (
+            <ChallengeDetail
+              challenge={selectedChallenge}
+              onBack={() => setSelectedChallenge(null)}
+            />
+          );
+        }
+        return (
+          <ChallengeBoard
+            onChallengeSelect={(challenge) => setSelectedChallenge(challenge)}
+          />
+        );
       case 'profile':
         return <Profile />;
       case 'submit':
