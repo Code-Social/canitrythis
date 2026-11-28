@@ -1,4 +1,4 @@
-#🎯Can I Try This? – Real Challenges, Real Skills
+# 🎯 Can I Try This? – Real Challenges, Real Skills
 
 Welcome to **Can I Try This?**, a fun and beginner-friendly platform where you can explore **real-world challenges** in design, development, writing, data, and more. These aren't just made-up exercises. They come from real tasks, community submissions, and partner projects.
 
@@ -106,13 +106,15 @@ We welcome beginners and first-time contributors!
   <a href="https://discord.gg/MSTNyRSPYW" target="_blank">
     <img src="https://img.shields.io/badge/DISCORD-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
   </a>
-  
+
   <a href="https://instagram.com/codesocial.tech" target="_blank">
     <img src="https://img.shields.io/badge/INSTAGRAM-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
   </a>
-<a href="https://codesocial.tech" target="_blank">
-  <img src="https://raw.githubusercontent.com/Sejal-hani/canitrythis/sp/assets/code_social_logo.png" alt="Code Social" height="28"/>
-</a>
+
+  <a href="https://codesocial.tech" target="_blank">
+    <img src="./assets/code_social_logo.png" alt="Code Social" height="28" />
+  </a>
+</p>
 
 
 ---
